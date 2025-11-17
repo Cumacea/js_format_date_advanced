@@ -14,21 +14,21 @@ function formatDate(date, fromFormat, toFormat) {
   for (let i = 0; i < toFormat.length - 1; i++) {
     for (let n = 0; n < fromFormat.length - 1; n++) {
       if (fromFormat[n] === 'YYYY' && toFormat[i] === 'YY') {
-        const shortYearDate = oldDate[n].toString().slice(2);
+        const shortYearDate = oldDate[n].slice(2);
 
-        newDate[i] = +shortYearDate;
+        newDate[i] = shortYearDate;
       }
 
       if (fromFormat[n] === 'YY' && toFormat[i] === 'YYYY') {
         let longYearDate = '';
 
         if (oldDate[n] < 30) {
-          longYearDate = '20' + oldDate[n].toString();
+          longYearDate = '20' + oldDate[n];
         } else {
-          longYearDate = '19' + oldDate[n].toString();
+          longYearDate = '19' + oldDate[n];
         }
 
-        newDate[i] = +longYearDate;
+        newDate[i] = longYearDate;
       }
 
       if (toFormat[i] === fromFormat[n]) {
